@@ -36,6 +36,11 @@ export default class PostingConcept {
     return await this.posts.readMany({}, { sort: { _id: -1 } });
   }
 
+  async getPost(_id: ObjectId) {
+    // Returns one post
+    return await this.posts.readOne({ _id });
+  }
+
   async update(_id: ObjectId, content?: string, options?: PostOptions) {
     // Note that if content or options is undefined, those fields will *not* be updated
     // since undefined values for partialUpdateOne are ignored.
